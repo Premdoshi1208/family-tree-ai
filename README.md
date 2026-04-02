@@ -63,3 +63,16 @@ This project allows users to:
 ```bash
 git clone https://github.com/Premdoshi1208/family-tree-ai.git
 cd family-tree-ai
+2️⃣ Install dependencies
+pip install -r requirements.txt
+3️⃣ Setup environment variables
+
+Create a .env file in the root folder:
+
+GROQ_API_KEY=your_api_key_here
+4️⃣ Start Redis (FalkorDB backend)
+redis-server
+5️⃣ Run FastAPI backend
+uvicorn backend.main:app --reload --port 8000
+6️⃣ Run Streamlit frontend
+streamlit run frontend/app.py
