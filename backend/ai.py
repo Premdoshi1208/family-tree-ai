@@ -1,8 +1,19 @@
+import os
+from pathlib import Path
 
-
+from dotenv import load_dotenv
 from groq import Groq
 
-client = Groq(api_key="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")
+# Project root .env (works when cwd is not the project root)
+load_dotenv(Path(__file__).resolve().parent.parent / ".env")
+
+_GROQ_API_KEY = os.getenv("GROQ_API_KEY")
+if not _GROQ_API_KEY:
+    raise RuntimeError(
+        "GROQ_API_KEY is not set. Add GROQ_API_KEY=<your_key> to the .env file in the project root."
+    )
+
+client = Groq(api_key=_GROQ_API_KEY)
 
 
 def generate_cypher_query(user_input: str):

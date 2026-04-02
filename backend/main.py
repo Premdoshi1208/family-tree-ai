@@ -1,4 +1,11 @@
 import logging
+from pathlib import Path
+
+from dotenv import load_dotenv
+
+# Load project-root .env so GROQ_API_KEY and other secrets are available app-wide
+load_dotenv(Path(__file__).resolve().parent.parent / ".env")
+
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from backend.routes.family import router as family_router
