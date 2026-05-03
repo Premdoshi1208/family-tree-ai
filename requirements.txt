@@ -1,0 +1,10 @@
+fastapi
+uvicorn
+pandas
+requests
+langchain
+langgraph
+groq
+python-dotenv
+redis
+streamlit-agraph
